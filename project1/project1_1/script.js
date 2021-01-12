@@ -1,5 +1,3 @@
-"use strict";
-
 const dayEnd = +prompt("Сколько дней прошло?", "");
 
 let dayStart = 100 - dayEnd;

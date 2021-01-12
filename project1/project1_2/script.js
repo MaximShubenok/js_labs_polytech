@@ -1,7 +1,3 @@
-"use strict";
-
-
-
 const multiplication = 9;
 
 for (let i = 1; i <= multiplication; i++) {

@@ -1,5 +1,3 @@
-"use strict";
-
 const word = prompt("Введите вашу фразу(слово:)", "");
 let reverseWord = word;
 
@@ -12,7 +10,7 @@ reverseWord = reverseWord.join("");
 console.log(reverseWord);
 
 
-if (reverseWord == word) {
+if (reverseWord.toLowerCase == word.toLowerCase) {
     alert("Фраза является палиндромом");
 } else {
     alert("Фраза не является палиндромом");
