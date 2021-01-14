@@ -1,59 +1,33 @@
-"use strict";
+let array = [{id: 2, name: "Организация", parentId: null},
+             {id: 3, name: "Бухгалтерия", parentId: 2},
+             {id: 6, name: "Отдел охраны", parentId: 2},
+             {id: 7, name: "Караульная служба", parentId: 6},
+             {id: 8, name: "Бюро пропусков", parentId: 6},
+             {id: 12, name: "Патентный отдел", parentId: 2},
+             {id: 13, name: "Лётная служба", parentId: 2},
+             {id: 14, name: "Лётный отряд Боинг 737", parentId: 13},
+             {id: 17, name: "Лётный отряд Боинг 747", parentId: 13},
+             {id: 18, name: "1-ая авиационная эксадрилия Боинг 737", parentId: 14},
+             {id: 19, name: "2-ая авиационная эскадрилия Боинг 737", parentId: 14},
+             {id: 21, name: "Лётно-методический отдел", parentId: 13}
+            ];
 
-// let pont = {
-//     x: 10,
-//     y:20,
-//     sum: function () {
-//         return this.x + this.y;
-//     }
-// };
+const root = document.querySelector('#root'); 
+array.forEach(item => {
+    const li = document.createElement('li');
 
-// console.log(pont.sum());
+    if (item.parentId === null) {
+        root.append(li);
+        li.innerHTML = `${item.name}<ul id="id${item.id}"></ul>`;
 
+    } else {
+        array.forEach(parents => {
+            const parentEl = document.getElementById(`id${item.parentId}`);
 
-
-// Создание классов ↓↓↓↓↓
-
-class Person {
-    constructor(name = Person.getDefaultString(), surname = Person.getDefaultString()) {
-        // В кавычках можем сделать значение по умолчанию 
-        this.name = name;
-        this.surname = surname;
-        this.invited = false;
-        Person.count++;
+            if (item.parentId === parents.id) {
+                parentEl.append(li);
+                li.innerHTML = `${item.name}<ul id="id${item.id}"></ul>`;
+            }
+        });
     }
-
-    toggleInvited() {
-        // метод класса. При создании метода класса слово function писать не нужно
-        this.invited = !this.invited;
-    }
-
-    static getDefaultString() {
-        return "-";
-    }
-    // Статический метод класса. Это методы класса, а не его экземпляров
-
-}
-Person.count = 0;
-// Статические свойства классов. Свойства, которые относятся к классам, а не к его объектам. Т.е. у объектов статического свойства не будет, а у самих классов будет.
-
-let user1 = new Person('Vasya', 'Ivanov');
-
-user1.toggleInvited();
-// Вызов метода класса
-
-console.log(Person.count);
-// Будет выведена 2 т.к. Мы создали 2 эеземпляра класса
-
-
-
-
-// console.log(user1 instanceof Person);
-// // user1 является экземпляром Person
-
-// console.log(user1);
-
-
-
-
-// Наследование ↓↓↓↓↓
+});

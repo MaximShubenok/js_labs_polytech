@@ -1,12 +1,12 @@
-"use strict";
+const searchURL = prompt("Введите текст содержащий URL адрес", "");
 
-let text = '654651494jsj654s65j46546564556j j4522 65';
-// let res = text.match(/\d/g);
-// let res = text.replace(/\d/g, '-');
-// console.log(res);
+const checkURL = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,})/g;
 
-let myExp = new RegExp(/\d/, 'g');
-let res = text.replace(RegExp, '-');
+console.log(checkURL.test(searchURL));
+
+const searchEmail = prompt("Введите текст содержащий Email", "");
+
+const checkEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gim.test(searchEmail);
 
 
-const searchURL = prompt("Введите текст с URL адресом", "");
+console.log(checkEmail);

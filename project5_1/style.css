@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .time {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+}
+.container .time .number {
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.container .time span.colon {
+  font-size: 40px;
+}
